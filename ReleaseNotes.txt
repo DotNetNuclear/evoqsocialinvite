@@ -1,0 +1,22 @@
+﻿<h3>DotNetNuclear Social Invite</h3>
+<p class="Contributor">
+	DotNetNuclear <br />
+	<a href="mailto:support@dotnetnuclear.com">support@dotnetnuclear.com</a><br />
+	<a href=http://www.dotnetnuclear.com>http://www.dotnetnuclear.com</a><br />
+</p>
+<hr/>
+<div class="License">
+	<h3>About DotNetNuclear Social Invite/Register</h3>
+	<h4>Version 1.1.0</h4>
+	<ul>
+		<li>Enhancement: "Invite a friend" pop up view for the Evoq social user profile or dashboard</li>
+		<li>Enhancement: Option to allow preset invitation message</li>
+		<li>Enhancement: Configurable one-time or daily maximum invitation limits</li>
+		<li>Enhancement: Customizable invitation email template</li>
+		<li>Enhancement: New registration view that supports DNN portal registration settings</li>
+	</ul>
+	<h4>Version 1.0.0</h4>
+	<ul>
+		<li>Initial Release</li>
+	</ul>
+</div>

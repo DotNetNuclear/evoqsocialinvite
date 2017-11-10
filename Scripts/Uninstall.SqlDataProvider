@@ -1,0 +1,42 @@
+﻿IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}DNNuclear_InviteRegister_Invites]') AND type in (N'U'))
+    DROP TABLE {databaseOwner}[{objectQualifier}DNNuclear_InviteRegister_Invites]
+GO
+
+/* Content Items */
+DECLARE @ContentTypeID INT
+SET @ContentTypeID = ( SELECT   ContentTypeID
+					   FROM     {databaseOwner}{objectQualifier}ContentTypes
+					   WHERE    ContentType = 'DNNuclear_SocialInvite'
+					 )
+
+DELETE FROM {databaseOwner}{objectQualifier}ContentItems
+	WHERE   ContentTypeID = @ContentTypeID
+
+DELETE FROM  {databaseOwner}{objectQualifier}ContentTypes
+	WHERE ContentTypeID = @ContentTypeID
+GO
+
+/* Subscriptions */
+DECLARE @SubscriptionTypeId INT
+SET @SubscriptionTypeId = ( SELECT   SubscriptionTypeId
+					   FROM     {databaseOwner}{objectQualifier}Subscriptions_Type
+					   WHERE    SubscriptionName = 'DNNuclear_SocialInvite'
+					 )
+
+DELETE FROM {databaseOwner}{objectQualifier}Subscriptions_Type
+	WHERE   SubscriptionTypeId = @SubscriptionTypeId
+GO
+
+/* Notifications */
+DECLARE @NotificationTypeId INT
+ SET @NotificationTypeId = (SELECT NotificationTypeID from {databaseOwner}[{objectQualifier}CoreMessaging_NotificationTypes] WHERE Name = N'DNNuclear_SocialInvitationUsed')
+ DELETE FROM  {databaseOwner}[{objectQualifier}CoreMessaging_Messages] 
+	WHERE NotificationTypeId = @NotificationTypeId
+
+ DELETE FROM {databaseOwner}[{objectQualifier}CoreMessaging_NotificationTypeActions] 
+	WHERE NotificationTypeId = @NotificationTypeId
+
+DELETE FROM {databaseOwner}[{objectQualifier}CoreMessaging_NotificationTypes] 
+	WHERE NotificationTypeId = @NotificationTypeId
+
+GO

@@ -1,0 +1,163 @@
+<dotnetnuke type="Package" version="5.0">
+    <packages>
+        <package name="DotNetNuclear Social Invite" type="Module" version="01.01.00">
+            <friendlyName>Social Invite</friendlyName>
+            <description>DotNetNuclear Social Invite module</description>
+            <iconFile>Resources/images/extensions_invite.png</iconFile>
+            <owner>
+                <name>DotNetNuclear</name>
+                <organization>DotNetNuclear LLC</organization>
+                <url>http://www.dotnetnuclear.com</url>
+                <email>support@dotnetnuclear.com</email>
+            </owner>
+            <license src="License.txt"></license>
+            <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+            <dependencies>
+                <dependency type="CoreVersion">07.00.02</dependency>
+                <dependency type="type">DotNetNuke.Mechanics.Entities.Badge</dependency>
+            </dependencies>
+
+            <components>
+                <component type="Script">
+                    <scripts>
+                        <basePath>DesktopModules\DotNetNuclear.InviteRegister</basePath>
+                        <script type="Install">
+                            <path>Scripts</path>
+                            <name>00.00.01.SqlDataProvider</name>
+                            <version>00.00.01</version>
+                        </script>
+                        <script type="UnInstall">
+                            <path>Scripts</path>
+                            <name>Uninstall.SqlDataProvider</name>
+                            <version>00.00.01</version>
+                        </script>
+                    </scripts>
+                </component>
+
+                <component type="ResourceFile">
+                    <resourceFiles>
+                        <basePath>DesktopModules/DotNetNuclear.InviteRegister</basePath>
+                        <resourceFile>
+                            <name>Resources.zip</name>
+                        </resourceFile>
+                    </resourceFiles>
+                </component>
+
+                <component type="Module">
+                    <desktopModule>
+                        <moduleName>SocialInvite</moduleName>
+                        <foldername>DotNetNuclear.InviteRegister</foldername>
+                        <businessControllerClass>DotNetNuclear.Modules.InviteRegister.Components.FeatureController</businessControllerClass>
+                        <supportedFeatures>
+                            <supportedFeature type="Upgradable" />
+                        </supportedFeatures>
+                        <moduleDefinitions>
+                            <moduleDefinition>
+                                <friendlyName>Social Invite</friendlyName>
+                                <defaultCacheTime>0</defaultCacheTime>
+                                <moduleControls>
+                                    <moduleControl>
+                                        <controlKey />
+                                        <controlSrc>DesktopModules/DotNetNuclear.InviteRegister/Views/Dispatch.ascx</controlSrc>
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <controlTitle />
+                                        <controlType>View</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <viewOrder>0</viewOrder>
+                                    </moduleControl>
+                                    <moduleControl>
+                                      <controlKey>Invite</controlKey>
+                                        <controlSrc>DesktopModules/DotNetNuclear.InviteRegister/Views/Invite.ascx</controlSrc>
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <controlTitle />
+                                        <controlType>View</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <supportsPopUps>true</supportsPopUps>
+                                        <viewOrder>1</viewOrder>
+                                    </moduleControl>
+                                    <moduleControl>
+                                        <controlKey>Settings</controlKey>
+                                        <controlSrc>DesktopModules/DotNetNuclear.InviteRegister/Views/Settings.ascx</controlSrc>
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <controlTitle>InviteRegister Settings</controlTitle>
+                                        <controlType>Edit</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <viewOrder>2</viewOrder>
+                                    </moduleControl>
+                                </moduleControls>
+                            </moduleDefinition>
+                        </moduleDefinitions>
+                    </desktopModule>
+                    <eventMessage>
+                        <processorType>DotNetNuke.Entities.Modules.EventMessageProcessor, DotNetNuke</processorType>
+                        <processorCommand>UpgradeModule</processorCommand>
+                        <attributes>
+                            <businessControllerClass>DotNetNuclear.Modules.InviteRegister.Components.FeatureController</businessControllerClass>
+                            <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
+                            <upgradeVersionsList>01.00.00</upgradeVersionsList>
+                        </attributes>
+                    </eventMessage>
+                </component>
+                <component type="Assembly">
+                    <assemblies>
+                        <assembly>
+                            <name>DotNetNuclear.InviteRegister.dll</name>
+                            <sourceFileName>DotNetNuclear.InviteRegister.dll</sourceFileName>
+                        </assembly>
+                    </assemblies>
+                </component>
+            </components>
+        </package>
+
+        
+        <package name="DotNetNuclear Social Register" type="Module" version="01.01.00">
+            <friendlyName>Social Register</friendlyName>
+            <description>DotNetNuclear Social Register module</description>
+            <iconFile>DesktopModules/DotNetNuclear.InviteRegister/Resources/images/extensions_register.png</iconFile>
+            <owner>
+                <name>DotNetNuclear</name>
+                <organization>DotNetNuclear</organization>
+                <url>http://www.dotnetnuclear.com</url>
+                <email>support@dotnetnuclear.com</email>
+            </owner>
+            <license src="License.txt"></license>
+            <releaseNotes src="ReleaseNotes.txt"></releaseNotes>
+            <dependencies>
+                <dependency type="CoreVersion">07.00.02</dependency>
+                <dependency type="type">DotNetNuke.Mechanics.Entities.Badge</dependency>
+            </dependencies>
+
+            <components>
+                <component type="Module">
+                    <desktopModule>
+                        <moduleName>SocialRegister</moduleName>
+                        <foldername>DotNetNuclear.InviteRegister</foldername>
+                        <businessControllerClass></businessControllerClass>
+                        <supportedFeatures />
+                        <moduleDefinitions>
+                            <moduleDefinition>
+                                <friendlyName>Social Register</friendlyName>
+                                <defaultCacheTime>0</defaultCacheTime>
+                                <moduleControls>
+                                    <moduleControl>
+                                        <controlKey />
+                                        <controlSrc>DesktopModules/DotNetNuclear.InviteRegister/Views/Register.ascx</controlSrc>
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <controlTitle />
+                                        <controlType>View</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <viewOrder>0</viewOrder>
+                                    </moduleControl>
+                                </moduleControls>
+                            </moduleDefinition>
+                        </moduleDefinitions>
+                    </desktopModule>
+                </component>
+            </components>
+        </package>
+    </packages>
+</dotnetnuke>

@@ -1,0 +1,33 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'{databaseOwner}[{objectQualifier}DNNuclear_InviteRegister_Invites]') AND type in (N'U'))
+BEGIN
+CREATE TABLE {databaseOwner}{objectQualifier}DNNuclear_InviteRegister_Invites
+    (
+	[InviteId] [int] NOT NULL,
+	[InviteKey] [nvarchar](255) NOT NULL,
+	[RegisterCode] [nvarchar](36) NOT NULL
+	) 
+
+ALTER TABLE {databaseOwner}{objectQualifier}DNNuclear_InviteRegister_Invites ADD CONSTRAINT
+    PK_{objectQualifier}DNNuclear_InviteRegister_Invites PRIMARY KEY NONCLUSTERED 
+    (
+    InviteId
+    )
+
+END
+GO
+
+
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/
